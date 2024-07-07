@@ -20,7 +20,7 @@ namespace учу_сишарп
             {
                 Console.WriteLine("Введите число 1");
                 a = float.Parse(Console.ReadLine(), numberFormatInfo);
-                 
+
                 Console.WriteLine("Введите число 2");
                 b = float.Parse(Console.ReadLine(), numberFormatInfo);
 

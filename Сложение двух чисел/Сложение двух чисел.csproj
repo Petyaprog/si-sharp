@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8BE6902A-9963-4591-A8B7-D3B2691858D8}</ProjectGuid>
+    <ProjectGuid>{EF709BA9-027B-439B-B5C8-80AC0C762425}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>учу_сишарп</RootNamespace>
-    <AssemblyName>учу сишарп</AssemblyName>
+    <RootNamespace>Сложение_двух_чисел</RootNamespace>
+    <AssemblyName>Сложение двух чисел</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

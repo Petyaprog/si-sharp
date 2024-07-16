@@ -7,7 +7,7 @@ namespace учу_сишарп
     {
         static void Main(string[] args)
         {
-            float a, b;
+            float a, b; 
 
             NumberFormatInfo numberFormatInfo = new NumberFormatInfo()
             {

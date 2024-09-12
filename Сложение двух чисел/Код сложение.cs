@@ -7,31 +7,58 @@ namespace учу_сишарп
     {
         static void Main(string[] args)
         {
-            float a, b; 
+
+            Console.WriteLine("Калькулятор");
 
             NumberFormatInfo numberFormatInfo = new NumberFormatInfo()
             {
                 NumberDecimalSeparator = ".",
             };
 
-            Console.WriteLine("Сложение двух чисел");
-
             try
             {
-                Console.WriteLine("Введите число 1");
-                a = float.Parse(Console.ReadLine(), numberFormatInfo);
+                Console.WriteLine("Введите первое число");
+                int num1 = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Введите число 2");
-                b = float.Parse(Console.ReadLine(), numberFormatInfo);
+                Console.WriteLine("Введите действие (+  -  *  /)");
+                string operand = Console.ReadLine();
 
-                Console.WriteLine("Результат " + (a + b));
+                Console.WriteLine("Введите второе число");
+                int num2 = int.Parse(Console.ReadLine());
+
+                switch (operand)
+                {
+                    case "+":
+                        Console.WriteLine($"Результат: {num1 + num2}");
+                        break;
+                    case "-":
+                        Console.WriteLine($"Результат: {num1 - num2}");
+                        break;
+                    case "*":
+                        Console.WriteLine($"Результат: {num1 * num2}");
+                        break;
+                    case "/":
+                        if (num2 == 0)
+                        {
+                            Console.WriteLine("Делить на 0 нельзя");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Результат: {num1 / num2}");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Не корректный символ");
+                        break;
+                }
             }
-            catch (FormatException)
+            catch (Exception ex)
             {
-                Console.WriteLine("Ошибка конвертации");
+                Console.WriteLine(ex.ToString());
             }
 
             Console.ReadLine();
         }
     }
 }
+

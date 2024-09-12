@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "оператор switch", "switch\оператор switch.csproj", "{A0A1A37A-0CC1-4AD6-A44D-877838BCF94E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Сложение двух чисел", "Сложение двух чисел\Сложение двух чисел.csproj", "{EF709BA9-027B-439B-B5C8-80AC0C762425}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Калькулятор", "Сложение двух чисел\Калькулятор.csproj", "{EF709BA9-027B-439B-B5C8-80AC0C762425}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Тернарный оператор", "Тернарный оператор\Тернарный оператор.csproj", "{6E7DB445-1CEF-4EB5-A833-5E575A2691CA}"
 EndProject

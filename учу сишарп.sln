@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "For, array, metod", "For, a
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String", "String\String.csproj", "{83C5B074-BEDA-40A7-A21B-EB5D48F05C0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "морской бой", "морской бой\морской бой.csproj", "{96EBFFCF-FD54-4F4D-B107-9E6A04FD8C1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{83C5B074-BEDA-40A7-A21B-EB5D48F05C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83C5B074-BEDA-40A7-A21B-EB5D48F05C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83C5B074-BEDA-40A7-A21B-EB5D48F05C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96EBFFCF-FD54-4F4D-B107-9E6A04FD8C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96EBFFCF-FD54-4F4D-B107-9E6A04FD8C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96EBFFCF-FD54-4F4D-B107-9E6A04FD8C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96EBFFCF-FD54-4F4D-B107-9E6A04FD8C1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

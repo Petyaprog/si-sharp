@@ -32,7 +32,6 @@ namespace морской_бой
             for (int j = 0; j < 10; j++)
             {
                 Console.Write($"{nameCols[j]} ");
-            }
             Console.WriteLine();
 
             for (int i = 1; i < cols; i++)

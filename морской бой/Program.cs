@@ -5,9 +5,74 @@ namespace морской_бой
     internal class Program
     {
 
+        static void Battle(char[,] array, char[,] array2, char[,] array3, char[,] array4, string[] name, char[] nameCols, int k)
+        {
+            int s = 0;
+            do
+            {
+                Console.Clear();
+                Pole(array, array2, nameCols, k, name);
+                Pole2(array3, array4, name, nameCols, k);
+
+                Console.WriteLine();
+                Console.WriteLine("Бой");
+                Console.WriteLine($"Стреляет {name[k]}");
+
+                Console.Write("Столбец: ");
+                char x = char.Parse(Console.ReadLine().ToUpper());
+                
+                Console.Write("Строка: ");
+                sbyte y = sbyte.Parse(Console.ReadLine());
+
+                int c = 0;
+                for (int i = 0; i < nameCols.Length; i++)
+                {
+                    if (nameCols[i] == x)
+                    {
+                        c = i;
+                        break;
+                    }
+                }
+                if (k == 0)
+                {
+                    if (array2[y, c + 1] == 'X')
+                    {
+                        Console.WriteLine("попал");
+                        array3[y, c + 1] = '*';
+                        array2[y, c + 1] = '*';
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("промазал");
+                        array3[y, c + 1] = '+';
+                        s = 1;
+                    }
+                }
+                if (k == 1)
+                {
+                    if (array[y, c + 1] == 'X')
+                    {
+                        Console.WriteLine("попал");
+                        array4[y, c + 1] = '*';
+                        array[y, c + 1] = '*';
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("промазал");
+                        array4[y, c + 1] = '+';
+                        s = 1;
+                    }
+
+                }
+            }
+            while (s != 1);
+        }
+
         static void Pole2(char[,] array3, char[,] array4, string[] name, char[] nameCols, int k)
         {
-
+            Console.Write("  ");
             for (int j = 0; j < 10; j++)
                 Console.Write($"{nameCols[j]} ");
             Console.WriteLine();
@@ -20,9 +85,9 @@ namespace морской_бой
                 for (int j = 1; j < 11; j++)
                 {
                     if (name[k] == "Первый игрок: ")
-                        Console.Write($"{array4[i, j]} ");
-                    else
                         Console.Write($"{array3[i, j]} ");
+                    else
+                        Console.Write($"{array4[i, j]} ");
                 }
                 Console.WriteLine();
             }
@@ -159,7 +224,7 @@ namespace морской_бой
 
             for (k = 0; k < 2; k++) 
             {
-                for (int i = 1; i <= 2; i++)  /////  4
+                for (int i = 1; i <= 1; i++)  /////  4
                 {
 
                     Pole(array, array2, nameCols, k, name);
@@ -211,50 +276,41 @@ namespace морской_бой
 
             Console.Clear();
 
-
-            Pole(array, array2, nameCols, k, name);
-            Pole2(array3, array4, name, nameCols, k);
-
-            for (k = 0; k < 2; k++)
+            for (; ;)
             {
-
-                if (name[k] == "Первый игрок: ") 
+                
+                int c = 0;
+                int b = 0;
+                for (int i = 0; i < 11; i++) 
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("Бой");
-                    Console.WriteLine("Стреляет первый игрок");
-
-                    Console.Write("Столбец: ");
-                    char x = char.Parse(Console.ReadLine().ToUpper());
-
-                    Console.Write("Строка: ");
-                    sbyte y = sbyte.Parse(Console.ReadLine());
-
-                    int c = 0;
-                    for (int i = 0; i < nameCols.Length; i++)
+                    for (int j = 0; j < 11; j++) 
                     {
-                        if (nameCols[i] == x)
-                        {
-                            c = i;
-                            break;
-                        }
+                        if (array[i, j] == 'X') c = 1 ;
+                        if (array2[i, j] == 'X') b = 2;
                     }
+                }
+                if ( (c != 1) && (b == 2))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Бой окончен");
+                    Console.WriteLine("Победил второй игрок ");
+                    break;
+                }
 
-                    if (array2[c, y] == 'X')
-                    {
-                        Console.WriteLine("попал");
-                        array4[c, y] = '*';
-                        //k--;
-                        Console.Clear();
-                        Pole(array, array2, nameCols, k, name);
-                        Pole2(array3, array4, name, nameCols, k);
-                    }
+                if ((c == 1) && (b != 2))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Бой окончен");
+                    Console.WriteLine("Победил первый игрок ");
+                    break;
+                }
 
-                    else Console.WriteLine("промазал");
-                } 
+                Battle(array, array2, array3, array4, name, nameCols, 0);
+
+                Battle(array, array2, array3, array4, name, nameCols, 1);
 
             }
-
+            
             Console.ReadLine();
             
         }

@@ -51,7 +51,7 @@ namespace морской_бой
                 Pole(array, array2, nameCols, k, name);
                 Pole2(array3, array4, name, nameCols, k);
                
-                Console.WriteLine("Бой");
+                Console.WriteLine("Бой (* - попал или убит; + - промазал)");
                 Console.WriteLine($"Стреляет {name[k]}");
 
                 Console.Write("Столбец: ");

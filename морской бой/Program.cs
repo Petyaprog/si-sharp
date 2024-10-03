@@ -5,16 +5,52 @@ namespace морской_бой
     internal class Program
     {
 
+        static int c = 0;
+
+        static void KeyDown()
+        {
+            if (Console.ReadKey(true).Key == ConsoleKey.Enter)
+            {
+                Console.Clear();
+            }
+        }
+
         static void Battle(char[,] array, char[,] array2, char[,] array3, char[,] array4, string[] name, char[] nameCols, int k)
         {
             int s = 0;
             do
             {
-                Console.Clear();
+                int b = 0;
+                int q = 0;
+                for (int i = 1; i < 11; i++)
+                {
+                    for (int j = 1; j < 11; j++)
+                    {
+                        if (array[i, j] == 'X') q = 1;
+                        if (array2[i, j] == 'X') b = 2;
+                    }
+                }
+                if ((q != 1) && (b == 2))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Бой окончен");
+                    Console.WriteLine("Победил второй игрок ");
+                    c = 3;
+                    break;
+                }
+
+                if ((q == 1) && (b != 2))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Бой окончен");
+                    Console.WriteLine("Победил первый игрок ");
+                    c = 3;
+                    break;
+                }
+
                 Pole(array, array2, nameCols, k, name);
                 Pole2(array3, array4, name, nameCols, k);
-
-                Console.WriteLine();
+               
                 Console.WriteLine("Бой");
                 Console.WriteLine($"Стреляет {name[k]}");
 
@@ -24,47 +60,70 @@ namespace морской_бой
                 Console.Write("Строка: ");
                 sbyte y = sbyte.Parse(Console.ReadLine());
 
-                int c = 0;
+                b = 0;
                 for (int i = 0; i < nameCols.Length; i++)
                 {
                     if (nameCols[i] == x)
                     {
-                        c = i;
+                        b = i;
                         break;
                     }
                 }
+                b++;
                 if (k == 0)
                 {
-                    if (array2[y, c + 1] == 'X')
+                    if (array2[y + 1, b] != 'X' && array2[y, b + 1] != 'X' && array2[y - 1, b] != 'X' && array2[y, b - 1] != 'X')
                     {
-                        Console.WriteLine("попал");
-                        array3[y, c + 1] = '*';
-                        array2[y, c + 1] = '*';
-                    }
-
+                        Console.WriteLine("убит");
+                        array3[y, b] = '*';
+                        array2[y, b] = '*';
+                        KeyDown();
+                    } 
                     else
                     {
-                        Console.WriteLine("промазал");
-                        array3[y, c + 1] = '+';
-                        s = 1;
+                        if (array2[y, b] == 'X')
+                        {
+                            Console.WriteLine("попал");
+                            array3[y, b] = '*';
+                            array2[y, b] = '*';
+                            KeyDown();
+                        }
+                        else
+                        {
+                            Console.WriteLine("промазал");
+                            array3[y, b] = '+';
+                            s = 1;
+                            KeyDown();
+                        }
                     }
                 }
                 if (k == 1)
                 {
-                    if (array[y, c + 1] == 'X')
+                    if (array[y + 1, b] != 'X' && array[y, b + 1] != 'X' && array[y - 1, b] != 'X' && array[y, b - 1] != 'X')
                     {
-                        Console.WriteLine("попал");
-                        array4[y, c + 1] = '*';
-                        array[y, c + 1] = '*';
+                        Console.WriteLine("убит");
+                        array4[y, b] = '*';
+                        array[y, b] = '*';
+                        KeyDown();
                     }
-
                     else
                     {
-                        Console.WriteLine("промазал");
-                        array4[y, c + 1] = '+';
-                        s = 1;
+                        if (array[y, b] == 'X')
+                        {
+                            Console.WriteLine("попал");
+                            array4[y, b] = '*';
+                            array[y, b] = '*';
+                            KeyDown();
+                        }
+                        else
+                        {
+                            Console.WriteLine("промазал");
+                            array4[y, b] = '+';
+                            s = 1;
+                            KeyDown();
+                        }
                     }
-
+                    
                 }
             }
             while (s != 1);
@@ -186,7 +245,6 @@ namespace морской_бой
 
                     Pole(array, array2, nameCols, k, name);
                 }
-
             }
         }
 
@@ -224,7 +282,7 @@ namespace морской_бой
 
             for (k = 0; k < 2; k++) 
             {
-                for (int i = 1; i <= 1; i++)  /////  4
+                for (int i = 1; i <= 4; i++)  /////
                 {
 
                     Pole(array, array2, nameCols, k, name);
@@ -237,12 +295,6 @@ namespace морской_бой
 
                     int a = int.Parse(Console.ReadLine());
 
-                    //if (a == s[0] || a == s[1] || a == s[2] || a == s[3])
-                    //{
-                    //    Console.WriteLine("Такой корабль уже установлен");
-                    //    break;
-                    //}
-
                     Console.Clear();
                     Pole(array, array2, nameCols, k, name);
 
@@ -250,19 +302,15 @@ namespace морской_бой
                     {
                         case 1:
                             Input(a, 4, array, nameCols, array2, name, k);
-                            s[0] = 2;
                             break;
                         case 2:
                             Input(a, 3, array, nameCols, array2, name, k);
-                            s[1] = 2;
                             break;
                         case 3:
                             Input(a, 2, array, nameCols, array2, name, k);
-                            s[2] = 3;
                             break;
                         case 4:
                             Input(a, 1, array, nameCols, array2, name, k);
-                            s[3] = 4;
                             break;
 
                         default:
@@ -278,40 +326,14 @@ namespace морской_бой
 
             for (; ;)
             {
-                
-                int c = 0;
-                int b = 0;
-                for (int i = 0; i < 11; i++) 
-                {
-                    for (int j = 0; j < 11; j++) 
-                    {
-                        if (array[i, j] == 'X') c = 1 ;
-                        if (array2[i, j] == 'X') b = 2;
-                    }
-                }
-                if ( (c != 1) && (b == 2))
-                {
-                    Console.Clear();
-                    Console.WriteLine("Бой окончен");
-                    Console.WriteLine("Победил второй игрок ");
-                    break;
-                }
-
-                if ((c == 1) && (b != 2))
-                {
-                    Console.Clear();
-                    Console.WriteLine("Бой окончен");
-                    Console.WriteLine("Победил первый игрок ");
-                    break;
-                }
-
+                if (c == 3) break;
                 Battle(array, array2, array3, array4, name, nameCols, 0);
-
+                if (c == 3) break;
                 Battle(array, array2, array3, array4, name, nameCols, 1);
-
+                if (c == 3) break;
             }
-            
-            Console.ReadLine();
+
+        Console.ReadLine();
             
         }
     }

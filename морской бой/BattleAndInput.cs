@@ -118,7 +118,6 @@ namespace морской_бой
 
                     string input = Console.ReadLine().ToUpper();
 
-
                     char inputCols = input[0];
 
                     int inputRows = (char)input[1] - (char)'0';

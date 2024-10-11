@@ -10,7 +10,6 @@ namespace морской_бой
         static void Main(string[] args)
         {
 
-            int [] s = new int[4];
             char[] nameCols = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К' };
             string[] name = {"Первый игрок: ", "Второй игрок: "};
             char[,] array = new char[11, 11];

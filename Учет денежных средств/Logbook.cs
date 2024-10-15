@@ -13,6 +13,7 @@ namespace Учет_денежных_средств
 
         public Logbook()
         {
+            payments = new List<object>();
             count++;
             Console.WriteLine("Вызван конструктор без параметров Logbook");
         }
@@ -21,15 +22,15 @@ namespace Учет_денежных_средств
         {
             Name = name;
             Card = card;
-            payments = new List<object>();
             count++;
             Console.WriteLine("Вызван конструктор с параметрами Logbook");
         }
 
-        public void AddDate(Payment payment, Logbook logbook)
+        public void AddDate(Logbook logbook, Payment payment, Profit profit)
         {
-            payments.Add(payment);
             payments.Add(logbook);
+            payments.Add(payment);
+            payments.Add(profit);
         }
 
         public void Print()
@@ -37,14 +38,14 @@ namespace Учет_денежных_средств
             Console.WriteLine();
             foreach (var item in payments)
             {
-                if (item is Payment payment)
+                if (item is Logbook logbook)
                 {
-                    Console.WriteLine($"Дата: {payment.Date}, Сумма: {payment.Amount}, Описание: {payment.Description}");
+                    Console.Write($"Имя: {logbook.Name}  Номер карты: {logbook.Card}");
                 }
-                else if (item is Logbook logbook)
+                else if (item is Payment payment)
                 {
-                    Console.WriteLine($"Имя: {logbook.Name}, Номер карты: {logbook.Card}");
-                    Console.WriteLine();
+                    Console.WriteLine($"  Дата: {payment.Date}  \nОписание: {payment.Description}  Сумма: {payment.Amount}\n");
+                    //Console.WriteLine();
                 }
             }
         }

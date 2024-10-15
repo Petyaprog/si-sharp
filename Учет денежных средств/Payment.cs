@@ -4,7 +4,7 @@ namespace Учет_денежных_средств
 {
     internal class Payment
     {
-        public string Date;
+        public DateTime Date;
         public int Amount;
         public string Description;
 
@@ -13,7 +13,7 @@ namespace Учет_денежных_средств
             Console.WriteLine("Вызван конструктор без параметров Payment");
         }
 
-        public Payment(string date, int amount, string description)
+        public Payment(DateTime date, int amount, string description)
         {
             Date = date;
             Amount = amount;

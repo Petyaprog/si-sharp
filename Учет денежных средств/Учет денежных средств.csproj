@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Logbook.cs" />
     <Compile Include="Payment.cs" />
+    <Compile Include="Profit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

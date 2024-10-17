@@ -8,18 +8,20 @@ namespace Учет_денежных_средств
         {
             try
             {
-                Logbook logbook = new Logbook();
+                Logbook logbook = new Logbook("Кирилл", 1397331);
 
-                logbook.AddDate(new Logbook("Кирилл", 1486), new Profit("Доход", DateTime.Now, 50000, "З/П"));
-                logbook.AddDate(new Logbook("Дима", 9876), new Payment(DateTime.Now, 1660, "Стипендия"));
-                logbook.AddDate(new Logbook("Леша", 2464), new Payment(DateTime.Now, 10000, "Еда"));
-                logbook.AddDate(new Logbook("Степа", 1135), new Payment(DateTime.Now, 15000, "Одежда"));
+                logbook.AddDate(new Profit("Доход", DateTime.Now, 50000, "З/П"));
+                logbook.AddDate(new Profit("Доход", DateTime.Now, 1660, "Стипендия"));
+                logbook.AddDate(new Expenses("Расход", DateTime.Now, 10000, "Еда"));
+                logbook.AddDate(new Expenses("Расход", DateTime.Now, 15000, "Одежда"));
 
                 logbook.Print();
+
+                Console.WriteLine($"Количество созданных объектов Payment: {Payment.GetObjectCount()}");
+                Console.WriteLine($"Количество созданных объектов Logbook: {Logbook.GetObjectCount()}");
+            
             }
             catch (Exception ex) { Console.WriteLine($"Произошла ошибка: {ex.Message}"); }
-
-            Console.ReadLine();
         }
     }
 }

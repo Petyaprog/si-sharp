@@ -5,16 +5,15 @@ namespace Учет_денежных_средств
 {
     internal class Logbook
     {
-        public string Name;
-        public int Card;
+        public string Name { get; set; }
+        public int Card { get; set; }
 
-        private List<object> payments = new List<object>();
-        private int count = 0;
+        private List<Payment> payments = new List<Payment>();
+        private static int objectCount = 0;
 
         public Logbook()
         {
-            payments = new List<object>();
-            count++;
+            objectCount++;
             Console.WriteLine("Вызван конструктор без параметров Logbook");
         }
 
@@ -22,31 +21,35 @@ namespace Учет_денежных_средств
         {
             Name = name;
             Card = card;
-            count++;
+            objectCount++;
             Console.WriteLine("Вызван конструктор с параметрами Logbook");
         }
 
-        public void AddDate(Logbook logbook, Payment payment, Profit profit)
+        ~Logbook()
         {
-            payments.Add(logbook);
+            objectCount--;
+            Console.WriteLine("Вызван деструктор Logbook");
+        }
+
+        public static int GetObjectCount()
+        {
+            return objectCount;
+        }
+
+        public void AddDate(Payment payment)
+        {
             payments.Add(payment);
-            payments.Add(profit);
         }
 
         public void Print()
         {
             Console.WriteLine();
+            Console.WriteLine($"Имя: {Name}  Номер карты: {Card}\n");
+
             foreach (var item in payments)
             {
-                if (item is Logbook logbook)
-                {
-                    Console.Write($"Имя: {logbook.Name}  Номер карты: {logbook.Card}");
-                }
-                else if (item is Payment payment)
-                {
-                    Console.WriteLine($"  Дата: {payment.Date}  \nОписание: {payment.Description}  Сумма: {payment.Amount}\n");
-                    //Console.WriteLine();
-                }
+                item.Print();
+                Console.WriteLine();
             }
         }
     }

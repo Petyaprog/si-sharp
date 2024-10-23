@@ -4,7 +4,7 @@ namespace морской_бой
 {
     internal class Field
     {
-        public static void Pole2(char[,] array3, char[,] array4, string[] name, char[] nameCols, int k)
+        public void Pole2(char[,] array3, char[,] array4, string[] name, char[] nameCols, int k)
         {
             Console.Write("  ");
             for (int j = 0; j < 10; j++)
@@ -29,7 +29,7 @@ namespace морской_бой
             Console.WriteLine();
         }
 
-        public static void Pole(char[,] array, char[,] array2, char[] nameCols, int k, string[] name)
+        public void Pole(char[,] array, char[,] array2, char[] nameCols, int k, string[] name)
         {
             Console.WriteLine($"{name[k]}");
             Console.WriteLine();

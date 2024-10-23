@@ -4,16 +4,16 @@ namespace морской_бой
 {
     internal class BattleAndInput
     {
-        private static void KeyDown()
+        public void KeyDown()
         {
             if (Console.ReadKey(true).Key == ConsoleKey.Enter)
             {
                 Console.Clear();
             }
         }
-
-        public static void Battle(char[,] array, char[,] array2, char[,] array3, char[,] array4, string[] name, char[] nameCols, int k)
+        public void Battle(char[,] array, char[,] array2, char[,] array3, char[,] array4, string[] name, char[] nameCols, int k)
         {
+            Field field = new Field();
             int s = 0;
             do
             {
@@ -45,10 +45,10 @@ namespace морской_бой
                     break;
                 }
 
-                Field.Pole(array, array2, nameCols, k, name);
-                Field.Pole2(array3, array4, name, nameCols, k);
+                field.Pole(array, array2, nameCols, k, name);
+                field.Pole2(array3, array4, name, nameCols, k);
 
-                Console.WriteLine("Бой (* - попал или убит; + - промазал)");
+                Console.WriteLine("Бой (* - попал; + - промазал)");
                 Console.WriteLine($"Стреляет {name[k]}");
 
                 string input = Console.ReadLine().ToUpper();
@@ -107,8 +107,9 @@ namespace морской_бой
             while (s != 1);
         }
 
-        public static void Input(int a, int f, char[,] array, char[] nameCols, char[,] array2, string[] name, int k)
+        public void Input(int a, int f, char[,] array, char[] nameCols, char[,] array2, string[] name, int k)
         {
+            Field field = new Field();
             try
             {
                 for (int d = a; d >= 1; d--)
@@ -121,6 +122,11 @@ namespace морской_бой
                     char inputCols = input[0];
 
                     int inputRows = (char)input[1] - (char)'0';
+
+                    if (input.Length >= 3 && input[1] == '1' && input[2] == '0')
+                    {
+                        inputRows = 10;
+                    }
 
                     Console.WriteLine();
 
@@ -141,7 +147,7 @@ namespace морской_бой
 
                     int direction = int.Parse(Console.ReadLine());
 
-                    if (direction == 1) // Вертикально
+                    if (direction == 1)
                     {
                         for (int i = 0; i < f; i++)
                         {
@@ -155,7 +161,7 @@ namespace морской_бой
                             }
                         }
                     }
-                    else if (direction == 2) // Горизонтально
+                    else if (direction == 2)
                     {
                         for (int i = 0; i < f; i++)
                         {
@@ -172,7 +178,7 @@ namespace морской_бой
 
                     Console.Clear();
 
-                    Field.Pole(array, array2, nameCols, k, name);
+                    field.Pole(array, array2, nameCols, k, name);
                 }
             }
             catch (Exception ex)

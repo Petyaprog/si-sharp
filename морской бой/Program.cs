@@ -9,6 +9,8 @@ namespace морской_бой
 
         static void Main(string[] args)
         {
+            BattleAndInput battleAndInput = new BattleAndInput();
+            Field field = new Field();
 
             char[] nameCols = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К' };
             string[] name = {"Первый игрок: ", "Второй игрок: "};
@@ -40,16 +42,18 @@ namespace морской_бой
 
             for (k = 0; k < 2; k++)
             {
-                Field.Pole(array, array2, nameCols, k, name);
+                field.Pole(array, array2, nameCols, k, name);
 
-                BattleAndInput.Input(1, 4, array, nameCols, array2, name, k);
+                battleAndInput.Input(1, 4, array, nameCols, array2, name, k);
 
-                BattleAndInput.Input(2, 3, array, nameCols, array2, name, k);
+                battleAndInput.Input(2, 3, array, nameCols, array2, name, k);
 
-                BattleAndInput.Input(3, 2, array, nameCols, array2, name, k);
+                battleAndInput.Input(3, 2, array, nameCols, array2, name, k);
 
-                BattleAndInput.Input(4, 1, array, nameCols, array2, name, k);
+                battleAndInput.Input(4, 1, array, nameCols, array2, name, k);
 
+                Console.WriteLine("Нажмите Enter");
+                battleAndInput.KeyDown();
                 Console.Clear();
             }
 
@@ -58,9 +62,9 @@ namespace морской_бой
             for (; ;)
             {
                 if (c == 3) break;
-                BattleAndInput.Battle(array, array2, array3, array4, name, nameCols, 0);
+                battleAndInput.Battle(array, array2, array3, array4, name, nameCols, 0);
                 if (c == 3) break;
-                BattleAndInput.Battle(array, array2, array3, array4, name, nameCols, 1);
+                battleAndInput.Battle(array, array2, array3, array4, name, nameCols, 1);
                 if (c == 3) break;
             }
 

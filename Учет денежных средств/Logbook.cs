@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Учет_денежных_средств
 {
     internal class Logbook
-    {
+    { 
         public string Name { get; set; }
         public int Card { get; set; }
 
@@ -31,7 +31,7 @@ namespace Учет_денежных_средств
             Console.WriteLine("Вызван деструктор Logbook");
         }
 
-        public static int GetObjectCount()
+        public int GetObjectCount()
         {
             return objectCount;
         }

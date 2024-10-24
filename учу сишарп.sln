@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "морской бой", "м
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Учет денежных средств", "Учет денежных средств\Учет денежных средств.csproj", "{DF6AB6C0-B6E2-482A-80AC-2ECD4A9EC044}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Коллекции", "Коллекции\Коллекции.csproj", "{FAF1BF26-7A0C-446C-8069-4A8476E95AF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{DF6AB6C0-B6E2-482A-80AC-2ECD4A9EC044}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF6AB6C0-B6E2-482A-80AC-2ECD4A9EC044}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF6AB6C0-B6E2-482A-80AC-2ECD4A9EC044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF1BF26-7A0C-446C-8069-4A8476E95AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF1BF26-7A0C-446C-8069-4A8476E95AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF1BF26-7A0C-446C-8069-4A8476E95AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF1BF26-7A0C-446C-8069-4A8476E95AF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

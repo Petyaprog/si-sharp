@@ -29,7 +29,7 @@ namespace Учет_денежных_средств
             Console.WriteLine("Вызван деструктор Payment");
         }
 
-        public static int GetObjectCount()
+        public int GetObjectCount()
         {
             return objectCount;
         }

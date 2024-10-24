@@ -10,7 +10,6 @@ namespace Учет_денежных_средств
             Type = type;
             Console.WriteLine("Вызван конструктор Profit.");
         }
-
         public override void Print()
         {
             base.Print();

@@ -9,6 +9,7 @@ namespace Учет_денежных_средств
             try
             {
                 Logbook logbook = new Logbook("Кирилл", 1397331);
+                Payment payment = new Payment();
 
                 logbook.AddDate(new Profit("Доход", DateTime.Now, 50000, "З/П"));
                 logbook.AddDate(new Profit("Доход", DateTime.Now, 1660, "Стипендия"));
@@ -17,8 +18,8 @@ namespace Учет_денежных_средств
 
                 logbook.Print();
 
-                Console.WriteLine($"Количество созданных объектов Payment: {Payment.GetObjectCount()}");
-                Console.WriteLine($"Количество созданных объектов Logbook: {Logbook.GetObjectCount()}");
+                Console.WriteLine($"Количество созданных объектов Payment: {payment.GetObjectCount()}");
+                Console.WriteLine($"Количество созданных объектов Logbook: {logbook.GetObjectCount()}");
             
             }
             catch (Exception ex) { Console.WriteLine($"Произошла ошибка: {ex.Message}"); }

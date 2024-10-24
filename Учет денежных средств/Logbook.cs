@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Учет_денежных_средств
 {
     internal class Logbook
-    { 
+    {
         public string Name { get; set; }
         public int Card { get; set; }
 

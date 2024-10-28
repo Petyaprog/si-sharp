@@ -106,7 +106,6 @@ namespace морской_бой
             }
             while (s != 1);
         }
-
         public void Input(int a, int f, char[,] array, char[] nameCols, char[,] array2, string[] name, int k)
         {
             Field field = new Field();

@@ -63,102 +63,110 @@ namespace Коллекции
 
             while (output)
             {
-                int num = int.Parse(Console.ReadLine());
-                switch (num)
-                {
-                    case 1:
-                        Console.Write("Введите номер элемента: ");
-                        int NumItem = int.Parse(Console.ReadLine());
-                        Console.WriteLine(Animals[NumItem - 1]);
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu1();
-                        break;
-                    case 2:
-                        Console.WriteLine($"Длинна списка: {Animals.Count}");
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu1();
-                        break;
-                    case 3:
-                        Console.WriteLine("Список до добавления");
-                        ConclusionList(Animals);
-                        Console.Write("Введите кол-во элементов для добавления: ");
-                        int AddNumItem = int.Parse(Console.ReadLine());
+                if (int.TryParse(Console.ReadLine(), out int num))
+                {     
+                    switch (num)
+                    {
+                        case 1:
+                            Console.Write("Введите номер элемента: ");
+                            int NumItem = int.Parse(Console.ReadLine());
+                            Console.WriteLine(Animals[NumItem - 1]);
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu1();
+                            break;
+                        case 2:
+                            Console.WriteLine($"Длинна списка: {Animals.Count}");
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu1();
+                            break;
+                        case 3:
+                            Console.WriteLine("Список до добавления");
+                            ConclusionList(Animals);
+                            Console.Write("Введите кол-во элементов для добавления: ");
+                            int AddNumItem = int.Parse(Console.ReadLine());
 
-                        for (int i = 0; i < AddNumItem; i++)
-                        {
-                            Console.Write($"{i + 1}-ый элемент: ");
-                            Animals.Add(Console.ReadLine());
-                        }
-                        Console.WriteLine("Список после добавления");
-                        ConclusionList(Animals);
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu1();
-                        break;
-                    case 4:
-                        Console.WriteLine("Введите элемент для поиска");
-                        string str = Console.ReadLine();
-
-                        if (Animals.Contains(str))
-                        {
-                            Console.WriteLine($"Элемент {str} найден на позиции {Animals.IndexOf(str) + 1}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Такой элемент не содержится в списке");
-                        }
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu1();
-                        break;
-                    case 5:
-                        ConclusionList(Animals);
-                        Console.Write($"Введите кол-во элементов для удаления. Всего их: {Animals.Count}: ");
-                        int NumDel = int.Parse(Console.ReadLine());
-
-                        for (int i = 0; i < NumDel; i++)
-                        {
-                            Console.Write($"\nВведите номер элемента. Всего их: {Animals.Count}: ");
-                            int NumItemDel = int.Parse(Console.ReadLine()) - 1;
-
-                            if (NumItemDel >= 0 && NumItemDel < Animals.Count)
+                            for (int i = 0; i < AddNumItem; i++)
                             {
-                                Console.WriteLine($"Элемент {Animals[NumItemDel]} удален");
-                                Animals.RemoveAt(NumItemDel);
-                                Console.WriteLine();
-                                ConclusionList(Animals);
+                                Console.Write($"{i + 1}-ый элемент: ");
+                                Animals.Add(Console.ReadLine());
+                            }
+                            Console.WriteLine("Список после добавления");
+                            ConclusionList(Animals);
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu1();
+                            break;
+                        case 4:
+                            Console.WriteLine("Введите элемент для поиска");
+                            string str = Console.ReadLine();
+
+                            if (Animals.Contains(str))
+                            {
+                                Console.WriteLine($"Элемент {str} найден на позиции {Animals.IndexOf(str) + 1}");
                             }
                             else
                             {
-                                Console.WriteLine("Неверный номер элемента. Попробуйте снова.");
-                                i--;
+                                Console.WriteLine("Такой элемент не содержится в списке");
                             }
-                        }
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu1();
-                        break;
-                    case 6:
-                        Console.WriteLine("Список по возрастанию");
-                        ConclusionList(Animals);
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu1();
+                            break;
+                        case 5:
+                            ConclusionList(Animals);
+                            Console.Write($"Введите кол-во элементов для удаления. Всего их: {Animals.Count}: ");
+                            int NumDel = int.Parse(Console.ReadLine());
 
-                        Animals.Reverse();
+                            for (int i = 0; i < NumDel; i++)
+                            {
+                                Console.Write($"\nВведите номер элемента. Всего их: {Animals.Count}: ");
+                                int NumItemDel = int.Parse(Console.ReadLine()) - 1;
 
-                        Console.WriteLine("\nСписок по убыванию");
-                        ConclusionList(Animals);
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu1();
-                        break;
-                    case 7:
-                        output = false;
-                        Console.Clear();
-                        break;
-                    default:
-                        Console.WriteLine("Введите не допустимый символ");
-                        break;
+                                if (NumItemDel >= 0 && NumItemDel < Animals.Count)
+                                {
+                                    Console.WriteLine($"Элемент {Animals[NumItemDel]} удален");
+                                    Animals.RemoveAt(NumItemDel);
+                                    Console.WriteLine();
+                                    ConclusionList(Animals);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Неверный номер элемента. Попробуйте снова.");
+                                    i--;
+                                }
+                            }
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu1();
+                            break;
+                        case 6:
+                            Console.WriteLine("Список по возрастанию");
+                            ConclusionList(Animals);
+
+                            Animals.Reverse();
+
+                            Console.WriteLine("\nСписок по убыванию");
+                            ConclusionList(Animals);
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu1();
+                            break;
+                        case 7:
+                            output = false;
+                            Console.Clear();
+                            break;
+                        default:
+                            Console.WriteLine("Введен недопустимый символ");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Повторите попытку, нажав Enter");
+                    KeyDown();
+                    Menu1();
                 }
             }
 

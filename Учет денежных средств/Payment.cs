@@ -2,11 +2,9 @@
 
 namespace Учет_денежных_средств
 {
-    internal class Payment
+    internal class Payment 
     {
-        public DateTime Date { get; set; }
-        public int Amount { get; set; }
-        public string Description { get; set; }
+        public PaymentInfo Info { get; set; }
         private static int objectCount = 0;
 
         public Payment()
@@ -15,11 +13,9 @@ namespace Учет_денежных_средств
             Console.WriteLine("Вызван конструктор без параметров Payment");
         }
 
-        public Payment(DateTime date, int amount, string description)
+        public Payment(PaymentInfo info)
         {
-            Date = date;
-            Amount = amount;
-            Description = description;
+            Info = info;
             objectCount++;
             Console.WriteLine("Вызван конструктор с параметрами Payment");
         }
@@ -36,7 +32,7 @@ namespace Учет_денежных_средств
 
         public virtual void Print()
         {
-            Console.Write($"Дата: {Date}  \nОписание: {Description}  Сумма: {Amount}");
+            Console.Write($"Дата: {Info.Date}  \nОписание: {Info.Description}  Сумма: {Info.Amount}");
         }
     }
 }

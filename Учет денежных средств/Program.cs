@@ -4,6 +4,7 @@ namespace Учет_денежных_средств
 {
     class Program
     {
+        public delegate void PaymentAddedEventHandler();
         static void Main(string[] args)
         {
             try
@@ -11,10 +12,12 @@ namespace Учет_денежных_средств
                 Logbook logbook = new Logbook("Кирилл", 1397331);
                 Payment payment = new Payment();
 
-                logbook.AddDate(new Profit("Доход", DateTime.Now, 50000, "З/П"));
-                logbook.AddDate(new Profit("Доход", DateTime.Now, 1660, "Стипендия"));
-                logbook.AddDate(new Expenses("Расход", DateTime.Now, 10000, "Еда"));
-                logbook.AddDate(new Expenses("Расход", DateTime.Now, 15000, "Одежда"));
+                logbook.PaymentAdded += () => Console.WriteLine("Платеж добавлен.");
+                
+                logbook.AddDate(new Profit("Доход", new PaymentInfo (DateTime.Now, 50000, "З/П")));
+                logbook.AddDate(new Profit("Доход", new PaymentInfo(DateTime.Now, 1660, "Стипендия")));
+                logbook.AddDate(new Expenses("Расход", new PaymentInfo(DateTime.Now, 10000, "Еда")));
+                logbook.AddDate(new Expenses("Расход", new PaymentInfo(DateTime.Now, 15000, "Одежда")));
 
                 logbook.Print();
 

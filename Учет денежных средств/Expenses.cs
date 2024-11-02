@@ -5,7 +5,8 @@ namespace Учет_денежных_средств
     internal class Expenses : Payment
     {
         public string Type { get; set; }
-        public Expenses(string type, DateTime Date, int Amount, string Description) : base(Date, Amount, Description)
+
+        public Expenses(string type, PaymentInfo info) : base(info)
         {
             Type = type;
             Console.WriteLine("Вызван конструктор Expenses.");

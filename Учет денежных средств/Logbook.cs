@@ -1,15 +1,19 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.EMMA;
+using System;
 using System.Collections.Generic;
+using static Учет_денежных_средств.Program;
 
 namespace Учет_денежных_средств
 {
-    internal class Logbook
+    internal class Logbook : ILogbook
     {
         public string Name { get; set; }
         public int Card { get; set; }
 
         private List<Payment> payments = new List<Payment>();
         private static int objectCount = 0;
+
+        public event PaymentAddedEventHandler PaymentAdded;
 
         public Logbook()
         {
@@ -39,6 +43,7 @@ namespace Учет_денежных_средств
         public void AddDate(Payment payment)
         {
             payments.Add(payment);
+            PaymentAdded?.Invoke();
         }
 
         public void Print()

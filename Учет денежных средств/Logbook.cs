@@ -1,7 +1,5 @@
-﻿using DocumentFormat.OpenXml.EMMA;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using static Учет_денежных_средств.Program;
 
 namespace Учет_денежных_средств
 {
@@ -11,9 +9,13 @@ namespace Учет_денежных_средств
         public int Card { get; set; }
 
         private List<Payment> payments = new List<Payment>();
+        EventArgs e = null;
         private static int objectCount = 0;
 
-        public event PaymentAddedEventHandler PaymentAdded;
+        public delegate void PaymentAddedEventHandler();
+
+        public delegate void LogbookAddedEventHandler(object sender, EventArgs e);
+        public event LogbookAddedEventHandler PaymentAdded;
 
         public Logbook()
         {
@@ -39,11 +41,11 @@ namespace Учет_денежных_средств
         {
             return objectCount;
         }
-
+        
         public void AddDate(Payment payment)
         {
             payments.Add(payment);
-            PaymentAdded?.Invoke();
+            PaymentAdded?.Invoke(this, e);
         }
 
         public void Print()

@@ -2,7 +2,7 @@
 
 namespace Учет_денежных_средств
 {
-    internal class Payment
+    class Payment
     {
         public PaymentInfo Info { get; set; }
         private static int objectCount = 0;

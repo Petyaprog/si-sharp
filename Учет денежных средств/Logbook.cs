@@ -6,10 +6,10 @@ namespace Учет_денежных_средств
     internal class Logbook : ILogbook
     {
         public string Name { get; set; }
-        public int Card { get; set; }
+        public int Card { get; set; }   
 
         private List<Payment> payments = new List<Payment>();
-        EventArgs e = null;
+        private EventArgs e = null;
         private static int objectCount = 0;
 
         public delegate void PaymentAddedEventHandler();
@@ -22,7 +22,6 @@ namespace Учет_денежных_средств
             objectCount++;
             Console.WriteLine("Вызван конструктор без параметров Logbook");
         }
-
         public Logbook(string name, int card)
         {
             Name = name;

@@ -12,7 +12,6 @@ namespace Коллекции
                 Console.WriteLine($"Номер: {item.Key} Значение {item.Value}");
             }
         }
-
         public static void ConclusionList(List<string> Animals)
         {
             foreach (var item in Animals)
@@ -182,78 +181,86 @@ namespace Коллекции
 
             while (output)
             {
-                int num = int.Parse(Console.ReadLine());
-                switch (num)
+                if (int.TryParse(Console.ReadLine(), out int num))
                 {
-                    case 1:
-                        Console.WriteLine("Словарь до добавления");
-                        ConclusionDictionary(Writers);
-                        Console.WriteLine("\nСколько писателей добавить?");
-                        int count = int.Parse(Console.ReadLine());
+                    switch (num)
+                    {
+                        case 1:
+                            Console.WriteLine("Словарь до добавления");
+                            ConclusionDictionary(Writers);
+                            Console.WriteLine("\nСколько писателей добавить?");
+                            int count = int.Parse(Console.ReadLine());
 
-                        for (int i = 0; i < count; i++)
-                        {
-                            Console.Write("Введите номер писателя: ");
-                            if (int.TryParse(Console.ReadLine(), out int id))
+                            for (int i = 0; i < count; i++)
                             {
-                                Console.Write("Введите фамилию писателя: ");
-                                string name = Console.ReadLine();
-                                Writers[id] = name;
+                                Console.Write("Введите номер писателя: ");
+                                if (int.TryParse(Console.ReadLine(), out int id))
+                                {
+                                    Console.Write("Введите фамилию писателя: ");
+                                    string name = Console.ReadLine();
+                                    Writers[id] = name;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Ошибка, нужно в виде числа.");
+                                }
                             }
-                            else
+                            Console.WriteLine("\nСловарь после добавления");
+                            ConclusionDictionary(Writers);
+
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu2();
+                            break;
+                        case 2:
+                            Console.WriteLine("Введите номер элемента для поиска");
+                            int Dnum = int.Parse(Console.ReadLine());
+
+                            if (Writers.ContainsKey(Dnum))
                             {
-                                Console.WriteLine("Ошибка, нужно в виде числа.");
+                                Console.WriteLine($"Писатель: {Writers[Dnum]}");
                             }
-                        }
-                        Console.WriteLine("\nСловарь после добавления");
-                        ConclusionDictionary(Writers);
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu2();
+                            break;
+                        case 3:
+                            ConclusionDictionary(Writers);
+                            Console.Write($"Введите кол-во элементов для удаления. Всего их: {Writers.Count}: ");
+                            int NumDel = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu2();
-                        break;
-                    case 2:
-                        Console.WriteLine("Введите номер элемента для поиска");
-                        int Dnum = int.Parse(Console.ReadLine());
-
-                        if (Writers.ContainsKey(Dnum))
-                        {
-                            Console.WriteLine($"Писатель: {Writers[Dnum]}");
-                        }
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu2();
-                        break;
-                    case 3:
-                        ConclusionDictionary(Writers);
-                        Console.Write($"Введите кол-во элементов для удаления. Всего их: {Writers.Count}: ");
-                        int NumDel = int.Parse(Console.ReadLine());
-
-                        for (int i = 0; i < NumDel; i++)
-                        {
-                            Console.Write($"\nВведите номер элемента. Всего их: {Writers.Count}: ");
-                            int NumItemDel = int.Parse(Console.ReadLine());
-
-                            if (Writers.ContainsKey(NumItemDel))
+                            for (int i = 0; i < NumDel; i++)
                             {
-                                Console.WriteLine($"Элемент {Writers[NumItemDel]} удален");
-                                Writers.Remove(NumItemDel);
-                                Console.WriteLine();
-                                ConclusionDictionary(Writers);
+                                Console.Write($"\nВведите номер элемента. Всего их: {Writers.Count}: ");
+                                int NumItemDel = int.Parse(Console.ReadLine());
+
+                                if (Writers.ContainsKey(NumItemDel))
+                                {
+                                    Console.WriteLine($"Элемент {Writers[NumItemDel]} удален");
+                                    Writers.Remove(NumItemDel);
+                                    Console.WriteLine();
+                                    ConclusionDictionary(Writers);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Неверный номер элемента. Попробуйте снова.");
+                                    i--;
+                                }
                             }
-                            else
-                            {
-                                Console.WriteLine("Неверный номер элемента. Попробуйте снова.");
-                                i--;
-                            }
-                        }
-                        Console.WriteLine("Нажмите Enter");
-                        KeyDown();
-                        Menu2();
-                        break;
-                    case 4:
-                        output = false;
-                        break;
+                            Console.WriteLine("Нажмите Enter");
+                            KeyDown();
+                            Menu2();
+                            break;
+                        case 4:
+                            output = false;
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Повторите попытку, нажав Enter");
+                    KeyDown();
+                    Menu2();
                 }
             }
         }

@@ -7,7 +7,6 @@ namespace учу_сишарп
     {
         static void Main(string[] args)
         {
-
             Console.WriteLine("Калькулятор");
 
             NumberFormatInfo numberFormatInfo = new NumberFormatInfo()

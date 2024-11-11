@@ -15,7 +15,7 @@ namespace Учет_денежных_средств
                 PaymentAddedEventHandler del = logbook.Print;
                 logbook.PaymentAdded += (sender, e) => Console.WriteLine("Платеж добавлен.");
                 
-                logbook.AddDate(new Profit("Доход", new PaymentInfo (DateTime.Now, 50000, "З/П")));
+                logbook.AddDate(new Profit("Доход", new PaymentInfo(DateTime.Now, 50000, "З/П")));
                 logbook.AddDate(new Profit("Доход", new PaymentInfo(DateTime.Now, 1660, "Стипендия")));
                 logbook.AddDate(new Expenses("Расход", new PaymentInfo(DateTime.Now, 10000, "Еда")));
                 logbook.AddDate(new Expenses("Расход", new PaymentInfo(DateTime.Now, 15000, "Одежда")));

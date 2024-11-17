@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные с этой сборкой.
-[assembly: AssemblyTitle("Фабричный метоод")]
+[assembly: AssemblyTitle("Паттерны прототип и сингелтон")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Фабричный метоод")]
+[assembly: AssemblyProduct("Паттерны прототип и сингелтон")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID представляет идентификатор typelib, если этот проект доступен из модели COM
-[assembly: Guid("fd9563f1-d72d-4573-963d-693423fa21fb")]
+[assembly: Guid("068773eb-cccf-416d-8192-ba45812b2f29")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

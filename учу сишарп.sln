@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фабричный", "Фа�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Паттерны прототип и сингелтон", "Паттерны прототип и сингелтон\Паттерны прототип и сингелтон.csproj", "{068773EB-CCCF-416D-8192-BA45812B2F29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Наблюдатель", "Наблюдатель\Наблюдатель.csproj", "{94CBF512-6DF8-4003-AB72-9FB379EF731E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{068773EB-CCCF-416D-8192-BA45812B2F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{068773EB-CCCF-416D-8192-BA45812B2F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{068773EB-CCCF-416D-8192-BA45812B2F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94CBF512-6DF8-4003-AB72-9FB379EF731E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94CBF512-6DF8-4003-AB72-9FB379EF731E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94CBF512-6DF8-4003-AB72-9FB379EF731E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94CBF512-6DF8-4003-AB72-9FB379EF731E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
